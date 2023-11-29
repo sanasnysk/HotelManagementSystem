@@ -118,7 +118,7 @@ public class NewAdmin extends JFrame {
 
                 if (!pas.equals(rep)) {
                     JOptionPane.showMessageDialog(null, "Password Invalid");
-                    return;
+
                 } else {
                     try {
                         String query = "INSERT INTO admin VALUES('" + adm + "', '" + pas + "')";
