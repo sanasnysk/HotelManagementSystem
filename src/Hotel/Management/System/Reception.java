@@ -8,11 +8,16 @@ import java.awt.event.ActionListener;
 public class Reception extends JFrame {
 
     JPanel imagePanel, boardPanel;
-    JButton btnNCF, btnRoom, btnDepartment, btnAEI, btnCI, btnMI, btnCO, btnUCD, btnUCID, btnURS, btnPUS, btnSR, btnBack;
+    JLabel lblUser;
+    public static JLabel users;
+    String user;
+    JButton btnNCF, btnRoom, btnDepartment, btnAEI, btnCI, btnMI, btnCO, btnUCD, btnUCID, btnURS, btnPUS, btnSR, btnLogOut, btnBack;
     Reception(){
 
         initReception();
         actionListener();
+
+        users = lblUser;
 
         getContentPane().setBackground(Color.WHITE);
         setLayout(null);
@@ -133,12 +138,26 @@ public class Reception extends JFrame {
         btnSR.setFont(new Font("Tahoma", Font.BOLD, 16));
         boardPanel.add(btnSR);
 
+        btnLogOut = new JButton("Logout");
+        btnLogOut.setBounds(25, 510, 120, 30);
+        btnLogOut.setBackground(Color.BLACK);
+        btnLogOut.setForeground(Color.WHITE);
+        btnLogOut.setFont(new Font("Tahoma", Font.BOLD, 16));
+        boardPanel.add(btnLogOut);
+
         btnBack = new JButton("Back");
-        btnBack.setBounds(25, 510, 250, 30);
+        btnBack.setBounds(155, 510, 120, 30);
         btnBack.setBackground(Color.BLACK);
         btnBack.setForeground(Color.WHITE);
         btnBack.setFont(new Font("Tahoma", Font.BOLD, 16));
         boardPanel.add(btnBack);
+
+        lblUser = new JLabel("User");
+        lblUser.setBounds(25,560, 250, 30);
+        lblUser.setForeground(new Color(200, 220, 250));
+        lblUser.setFont(new Font("Tahoma", Font.BOLD, 20));
+        lblUser.setHorizontalAlignment(SwingConstants.CENTER);
+        boardPanel.add(lblUser);
 
     }
 
@@ -227,11 +246,20 @@ public class Reception extends JFrame {
             }
         });
 
+        btnLogOut.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(101);
+            }
+        });
+
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                user = lblUser.getText();
                 setVisible(false);
                 new Deshboard();
+                Deshboard.users.setText(user);
             }
         });
 

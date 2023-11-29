@@ -10,10 +10,14 @@ public class LoginAdmin extends JFrame {
     JPasswordField pass;
     JButton btnSigin, btnCancel;
     Connecting con = new Connecting();
+    JLabel lblUser;
+    static JLabel users;
     LoginAdmin(){
 
        initLogin();
        actionListener();
+
+       users = lblUser;
 
         getContentPane().setBackground(new Color(10, 25, 37));
         setLayout(null);
@@ -70,6 +74,12 @@ public class LoginAdmin extends JFrame {
         btnCancel.setFont(new Font("serif", Font.BOLD, 16));
         btnCancel.setBackground(Color.BLACK);
         add(btnCancel);
+
+        lblUser = new JLabel("Users");
+        lblUser.setBounds(40,200, 120, 20);
+        lblUser.setFont(new Font("Tahoma", Font.PLAIN,18));
+        lblUser.setForeground(new Color(10, 25, 37));
+        add(lblUser);
     }
 
     public void actionListener(){
@@ -80,13 +90,15 @@ public class LoginAdmin extends JFrame {
 
     public void setLogin(){
         try {
-            String user = txtUser.getText();
+            String admin = txtUser.getText();
             String pas = new String(pass.getPassword());
-            String q = "SELECT * FROM admin WHERE admin_id = '" + user + "' AND password = '" + pas + "'";
+            String q = "SELECT * FROM admin WHERE admin_id = '" + admin + "' AND password = '" + pas + "'";
             ResultSet rs =  con.statement.executeQuery(q);
             if (rs.next()){
                 setVisible(false);
                 new Admin();
+                Admin.admins.setText(admin);
+                Admin.users.setText(lblUser.getText());
             }else {
                 JOptionPane.showMessageDialog(null, "Invalid");
             }

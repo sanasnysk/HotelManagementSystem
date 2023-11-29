@@ -10,6 +10,7 @@ public class Login extends JFrame {
     JPasswordField pass;
     JButton btnSigin, btnCancel;
     Connecting con = new Connecting();
+    String user;
     Login(){
 
        initLogin();
@@ -80,13 +81,14 @@ public class Login extends JFrame {
 
     public void setLogin(){
         try {
-            String user = txtUser.getText();
+            user = txtUser.getText();
             String pas = new String(pass.getPassword());
             String q = "SELECT * FROM login WHERE username = '" + user + "' AND password = '" + pas + "'";
             ResultSet rs =  con.statement.executeQuery(q);
             if (rs.next()){
                 setVisible(false);
                 new Deshboard();
+                Deshboard.users.setText(user);
             }else {
                 JOptionPane.showMessageDialog(null, "Invalid");
             }

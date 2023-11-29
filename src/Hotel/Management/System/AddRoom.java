@@ -32,7 +32,7 @@ public class AddRoom extends JFrame {
         panel.setBackground(new Color(10, 25, 37));
         add(panel);
 
-        JLabel lblRoom = new JLabel("Add Rooms");
+        JLabel lblRoom = new JLabel("Add Rooms Form");
         lblRoom.setBounds(194, 10, 160,30);
         lblRoom.setForeground(Color.WHITE);
         lblRoom.setFont(new Font("Tahoma", Font.BOLD, 24));
