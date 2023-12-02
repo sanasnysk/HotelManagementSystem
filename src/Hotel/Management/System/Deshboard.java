@@ -2,6 +2,8 @@ package Hotel.Management.System;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Deshboard extends JFrame {
 
@@ -81,6 +83,21 @@ public class Deshboard extends JFrame {
             new LoginAdmin();
             user = lblUser.getText();
             LoginAdmin.users.setText(user);
+        });
+
+        lblUser.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                int result = JOptionPane.showConfirmDialog(null,"Do you want to log out?", "Log Out", JOptionPane.YES_NO_OPTION);
+
+                if (result == JOptionPane.YES_NO_OPTION){
+                    System.exit(101);
+                }else {
+                    JOptionPane.showMessageDialog(null, "Do you want to keep your login?");
+                }
+
+            }
         });
     }
 
