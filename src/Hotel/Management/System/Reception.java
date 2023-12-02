@@ -11,7 +11,7 @@ public class Reception extends JFrame {
     JLabel lblUser;
     public static JLabel users;
     String user;
-    JButton btnNCF, btnRoom, btnDepartment, btnAEI, btnCI, btnMI, btnCO, btnUCD, btnUCID, btnURS, btnPUS, btnSR, btnLogOut, btnBack;
+    JButton btnNCF, btnRoom, btnDepartment, btnAEI, btnCI, btnMI, btnCO, btnUCID, btnURS, btnPUS, btnSR, btnLogOut, btnBack;
     Reception(){
 
         initReception();
@@ -103,50 +103,43 @@ public class Reception extends JFrame {
         btnCO.setFont(new Font("Tahoma", Font.BOLD, 16));
         boardPanel.add(btnCO);
 
-        btnUCD = new JButton("Update Check Details");
-        btnUCD.setBounds(25, 310, 250, 30);
-        btnUCD.setBackground(Color.BLACK);
-        btnUCD.setForeground(Color.WHITE);
-        btnUCD.setFont(new Font("Tahoma", Font.BOLD, 16));
-        boardPanel.add(btnUCD);
-
         btnUCID = new JButton("Update Check-In Details");
-        btnUCID.setBounds(25, 350, 250, 30);
+        btnUCID.setBounds(25, 310, 250, 30);
         btnUCID.setBackground(Color.BLACK);
         btnUCID.setForeground(Color.WHITE);
         btnUCID.setFont(new Font("Tahoma", Font.BOLD, 16));
         boardPanel.add(btnUCID);
 
         btnURS = new JButton("Update Room Status");
-        btnURS.setBounds(25, 390, 250, 30);
+        btnURS.setBounds(25, 350, 250, 30);
         btnURS.setBackground(Color.BLACK);
         btnURS.setForeground(Color.WHITE);
         btnURS.setFont(new Font("Tahoma", Font.BOLD, 16));
         boardPanel.add(btnURS);
 
         btnPUS = new JButton("Pick up Service");
-        btnPUS.setBounds(25, 430, 250, 30);
+        btnPUS.setBounds(25, 390, 250, 30);
         btnPUS.setBackground(Color.BLACK);
         btnPUS.setForeground(Color.WHITE);
         btnPUS.setFont(new Font("Tahoma", Font.BOLD, 16));
         boardPanel.add(btnPUS);
 
         btnSR = new JButton("Search Room");
-        btnSR.setBounds(25, 470, 250, 30);
+        btnSR.setBounds(25, 430, 250, 30);
         btnSR.setBackground(Color.BLACK);
         btnSR.setForeground(Color.WHITE);
         btnSR.setFont(new Font("Tahoma", Font.BOLD, 16));
         boardPanel.add(btnSR);
 
         btnLogOut = new JButton("Logout");
-        btnLogOut.setBounds(25, 510, 120, 30);
+        btnLogOut.setBounds(25, 470, 120, 30);
         btnLogOut.setBackground(Color.BLACK);
         btnLogOut.setForeground(Color.WHITE);
         btnLogOut.setFont(new Font("Tahoma", Font.BOLD, 16));
         boardPanel.add(btnLogOut);
 
         btnBack = new JButton("Back");
-        btnBack.setBounds(155, 510, 120, 30);
+        btnBack.setBounds(155, 470, 120, 30);
         btnBack.setBackground(Color.BLACK);
         btnBack.setForeground(Color.WHITE);
         btnBack.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -154,7 +147,7 @@ public class Reception extends JFrame {
 
         lblUser = new JLabel("User");
         lblUser.setBounds(25,560, 250, 30);
-        lblUser.setForeground(new Color(200, 220, 250));
+        lblUser.setForeground(new Color(3, 255, 25));
         lblUser.setFont(new Font("Tahoma", Font.BOLD, 20));
         lblUser.setHorizontalAlignment(SwingConstants.CENTER);
         boardPanel.add(lblUser);
@@ -208,13 +201,6 @@ public class Reception extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new CheckOut();
-            }
-        });
-
-        btnUCD.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
             }
         });
 
